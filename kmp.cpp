@@ -54,9 +54,9 @@ int main() {
     cout << "KMP algorithm: search occurences of a pattern in a string in O(n) time" << endl;
     cout << "----------------------------------------------------------------------" << endl;
     cout << "string:" << endl;
-    cin >> str;
+    getline(cin, str);
     cout << "pattern:" << endl;
-    cin >> pat;
+    getline(cin, pat);
     KMPsearch(str, pat);
     return 0;
 }
