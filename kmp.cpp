@@ -10,7 +10,7 @@
 // The next possible match will start at m+i-T[i],
 // and we do not need to check the first T[i] characters.
 // In practice, we just need to check whether S[m+i] == W[T[i-1]] if i > 0. 
-std::vector<int> computeLPS(std::string pat) {
+std::vector<int> computeLPS(std::string& pat) {
     std::vector<int> lps (pat.size());
     lps[0] = 0;
     int len = 0, i = 1;
@@ -28,7 +28,7 @@ std::vector<int> computeLPS(std::string pat) {
     return lps;
 }
 
-void KMPsearch(std::string str, std::string pat) {
+void KMPsearch(std::string& str, std::string& pat) {
     if (!str.size() || !pat.size()) { return; }
     std::vector<int> lps { computeLPS(pat) };
     int i = 0, j = 0;
