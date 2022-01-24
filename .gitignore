@@ -1,1 +1,5 @@
 bin
+sorting/*
+!sorting/*.cpp
+!sorting/*.hpp
+!sorting/Makefile
