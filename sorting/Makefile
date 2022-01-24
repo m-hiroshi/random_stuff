@@ -1,10 +1,11 @@
+OBJS = merge_sort.o heap_sort.o quick_sort.o
 CPPFLAGS = --std=c++17
 
-sort: merge_sort.o main.cpp
+sort: $(OBJS) main.cpp
 	g++ $(CPPFLAGS) -o $@ $^
 
 %.o: %.cpp %.hpp
 	g++ $(CPPFLAGS) -c $<
 
 clean:
-	rm *.o sort
+	rm -f $(OBJS) sort
