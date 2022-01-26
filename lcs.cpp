@@ -1,6 +1,7 @@
 #include <string>
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
 // Longest common substring
 // DP
@@ -8,10 +9,10 @@
 int lcs(std::string& str1, std::string& str2) {
   // To achive O(min(M,N)) space, we always pass the shorter string to str1
   size_t M = str1.size();
-  int row1[M+1] {0};
-  int row2[M+1] {0};
-  int* last_row = row1;
-  int* this_row = row2;
+  std::vector<int> row1(M+1, 0);
+  std::vector<int> row2(M+1, 0);
+  auto& last_row = row1;
+  auto& this_row = row2;
   for (const char& c : str2) {
     std::swap(this_row, last_row);
     for (size_t i = 0; i < M; ++i) {
