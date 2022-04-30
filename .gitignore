@@ -1,5 +1,6 @@
-**/*
-!**/*.cpp
-!**/*.hpp
-!**/Makefile
-!README.md
+*.o
+atoi
+kmp
+lcs
+sorting/sort
+prim/prim

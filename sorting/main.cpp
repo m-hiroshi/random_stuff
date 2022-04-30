@@ -20,16 +20,16 @@ int main() {
     while (nums_ss >> num) nums.push_back(num);
 
     std::vector<std::pair<std::string, std::function<void(std::vector<int>&)>>> sorting_algos = {
-	{"Merge sort (iterative)", merge_sort_iterative},
-	{"Merge sort (recursive)", merge_sort_recursive},
-	{"Heap sort", heap_sort},
-	{"Quick sort", quick_sort},
+        {"Merge sort (iterative)", merge_sort_iterative},
+        {"Merge sort (recursive)", merge_sort_recursive},
+        {"Heap sort", heap_sort},
+        {"Quick sort", quick_sort},
     };
     int algo_num = -1;
     while (algo_num < 0 || algo_num >= sorting_algos.size()) {
         std::cerr << "\nChoose the algorithm to do the sorting:\n";
         for (int i = 0; i < sorting_algos.size(); ++i) {
-    	    std::cerr << i << ". " << sorting_algos[i].first << "\n";
+            std::cerr << i << ". " << sorting_algos[i].first << "\n";
         }
         std::cin >> algo_num;
     }
