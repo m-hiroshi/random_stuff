@@ -9,10 +9,8 @@
 int lcs(std::string& str1, std::string& str2) {
   // To achive O(min(M,N)) space, we always pass the shorter string to str1
   size_t M = str1.size();
-  std::vector<int> row1(M+1, 0);
-  std::vector<int> row2(M+1, 0);
-  auto& last_row = row1;
-  auto& this_row = row2;
+  std::vector<int> this_row(M+1, 0);
+  std::vector<int> last_row(M+1, 0);
   for (const char& c : str2) {
     std::swap(this_row, last_row);
     for (size_t i = 0; i < M; ++i) {

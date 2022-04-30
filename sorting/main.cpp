@@ -1,9 +1,9 @@
 #include <vector>
 #include <iostream>
-#include <unordered_map>
 #include <functional>
 #include <string>
 #include <sstream>
+#include <utility>
 
 #include "merge_sort.hpp"
 #include "heap_sort.hpp"
@@ -19,20 +19,21 @@ int main() {
     int num;
     while (nums_ss >> num) nums.push_back(num);
 
-    std::unordered_map<int, std::function<void(std::vector<int>&)>> sorting_algos = {
-        {1, merge_sort_iterative},
-        {2, merge_sort_recursive},
-        {3, heap_sort},
-        {4, quick_sort}
+    std::vector<std::pair<std::string, std::function<void(std::vector<int>&)>>> sorting_algos = {
+	{"Merge sort (iterative)", merge_sort_iterative},
+	{"Merge sort (recursive)", merge_sort_recursive},
+	{"Heap sort", heap_sort},
+	{"Quick sort", quick_sort},
     };
-    std::cerr << "\nChoose the algorithm to do the sorting:\n"
-              << "1. Merge sort (iterative)\n"
-              << "2. Merge sort (recursive)\n"
-              << "3. Heap sort\n"
-              << "4. Quick sort\n";
-    int algo_num;
-    std::cin >> algo_num;
-    sorting_algos[algo_num](nums);
+    int algo_num = -1;
+    while (algo_num < 0 || algo_num >= sorting_algos.size()) {
+        std::cerr << "\nChoose the algorithm to do the sorting:\n";
+        for (int i = 0; i < sorting_algos.size(); ++i) {
+    	    std::cerr << i << ". " << sorting_algos[i].first << "\n";
+        }
+        std::cin >> algo_num;
+    }
+    sorting_algos[algo_num].second(nums);
     
     std::cerr << "\nSorted list:";
     for (auto num : nums) {

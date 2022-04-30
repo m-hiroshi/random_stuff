@@ -1,5 +1,5 @@
-bin
-sorting/*
-!sorting/*.cpp
-!sorting/*.hpp
-!sorting/Makefile
+**/*
+!**/*.cpp
+!**/*.hpp
+!**/Makefile
+!README.md
