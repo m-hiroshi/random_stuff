@@ -9,6 +9,7 @@ Plug 'itchyny/vim-gitbranch'
 Plug 'itchyny/lightline.vim'
 Plug 'flazz/vim-colorschemes'
 Plug 'airblade/vim-gitgutter'
+Plug 'bfrg/vim-cpp-modern'
 
 " List ends here.
 call plug#end()
