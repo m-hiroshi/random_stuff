@@ -18,10 +18,11 @@ set laststatus=2
 set completeopt-=preview
 set number
 set ruler
+
 set shiftwidth=4
 set tabstop=4
-set expandtab
-set autoindent
+autocmd Filetype cpp setlocal ts=2 sw=2 expandtab cindent
+autocmd Filetype cmake setlocal ts=2 sw=2 expandtab
 
 set t_Co=256
 set t_ut=""
@@ -39,3 +40,11 @@ let g:lightline = {
     \ },
     \ }
 
+let g:ycm_language_server = [
+  \   {
+  \     'name': 'haskell-language-server',
+  \     'cmdline': [ 'haskell-language-server-wrapper', '--lsp' ],
+  \     'filetypes': [ 'haskell', 'lhaskell' ],
+  \     'project_root_files': [ 'stack.yaml', 'cabal.project', 'package.yaml', 'hie.yaml' ],
+  \   },
+  \ ]
