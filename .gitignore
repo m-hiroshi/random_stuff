@@ -1,7 +1,4 @@
 *.o
-atoi
-kmp
-lcs
+compile_commands.json
 sorting/sort
-prim/prim
 .cache
