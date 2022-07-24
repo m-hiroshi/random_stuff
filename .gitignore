@@ -1,4 +1,4 @@
 *.o
+bin
 compile_commands.json
-sorting/sort
 .cache

@@ -7,7 +7,8 @@ util.o: util.cpp util.h
 	g++ $(FLAGS) -c -o $@ util.cpp
 
 %: %.cpp util.o
-	g++ $(FLAGS) -o $@ $< util.o
+	mkdir -p bin
+	g++ $(FLAGS) -o bin/$@ $< util.o
 
 clean:
 	rm -f $(OBJ)
