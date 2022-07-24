@@ -1,9 +1,8 @@
 #include <fstream>
-#include <functional>
 #include <iostream>
 #include <limits>
-#include <set>
-#include <unordered_set>
+#include <utility>
+#include <queue>
 #include <vector>
 
 #include "util.h"
@@ -12,25 +11,24 @@ std::vector<int> dijkstra(const std::vector<std::vector<int>> &adjacency) {
   if (adjacency.empty()) return {};
  
   std::vector<int> res(adjacency.size(), std::numeric_limits<int>::max());
-  
-  auto cmp = [&res](int left, int right) { return res[left] < res[right]; };
-  std::set<int, decltype(cmp)> to_visit(cmp);
-  res[0] = 0;
-  to_visit.insert(0);
+  using Pii = std::pair<int, int>; 
+  auto cmp = [](Pii left, Pii right) { return left.second > right.second; };
+  std::priority_queue<Pii, std::vector<Pii>, decltype(cmp)> to_visit(cmp);
+  to_visit.push({0, 0});
 
   while (to_visit.size()) {
-    auto it = to_visit.begin();
-    int node = *it;
-    to_visit.erase(it);
+    auto [node, dist] = to_visit.top();
+    to_visit.pop();
+    if (dist >= res[node]) continue;
+    res[node] = dist;
 
     const std::vector<int>& neighbors = adjacency[node];
     for (int i = 0; i < neighbors.size(); ++i) {
       if (i == node || neighbors[i] == std::numeric_limits<int>::max()) continue;
-      if (res[node] + neighbors[i] < res[i]) {
-        it = to_visit.find(i);
-        if (it != to_visit.end()) to_visit.erase(it);
-        res[i] = res[node] + neighbors[i];
-        to_visit.insert(i);
+      int new_dist = res[node] + neighbors[i];
+      if (new_dist < res[i]) {
+        res[i] = new_dist;
+        to_visit.push({i, new_dist});
       }
     }
   }
