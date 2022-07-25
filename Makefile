@@ -1,10 +1,14 @@
-OBJ = atoi kmp lcsi Rabin-Karp
+OBJ = atoi kmp lcs rabin_karp
+
+.PHONY = all clean mkdir
 
 all: $(OBJ)
 
-%: %.cpp
-	mkdir -p bin
+%: %.cpp mkdir
 	g++ --std=c++17 -o bin/$@ $<
 
+mkdir:
+	mkdir -p bin
+
 clean:
-	rm -f $(OBJ)
+	rm -rf bin
