@@ -1,4 +1,4 @@
-OBJ = iter_traversal diagonal_traversal
+OBJ = traversal diagonal_traversal
 FLAGS = -std=c++17
 
 .PHONY: all mkdir clean
