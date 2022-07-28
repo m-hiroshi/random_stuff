@@ -17,7 +17,7 @@ std::vector<std::vector<int>> floyd_warhsall(const std::vector<std::vector<int>>
     for (int u = 0; u < N; ++u) {
       for (int v = 0; v < N; ++v) {
         if (dists[u][v] > dists[u][k] + dists[k][v]) {
-          dists[u][v] = dists[v][u] = dists[u][k] + dists[k][v];
+          dists[u][v] = dists[u][k] + dists[k][v];
         }
       }
     }
