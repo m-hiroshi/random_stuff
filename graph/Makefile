@@ -1,4 +1,4 @@
-OBJ = dijkstra floyd_warshall prim
+OBJ = dijkstra floyd_warshall ford_fulkerson prim
 FLAGS = -std=c++17
 
 .PHONY: all mkdir clean

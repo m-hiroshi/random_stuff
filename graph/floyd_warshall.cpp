@@ -26,7 +26,7 @@ std::vector<std::vector<int>> floyd_warhsall(const std::vector<std::vector<int>>
 }
 
 int main(int argc, char **argv) {
-  const char *usage = "Usage: dijkstra GRAPH_FILE\n";
+  const char *usage = "Usage: floyd_warhsall GRAPH_FILE\n";
   if (argc != 2) {
     std::cerr << usage;
     return 1;
